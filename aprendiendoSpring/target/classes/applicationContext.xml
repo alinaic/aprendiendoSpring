@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+<!--  incluyo el archivo de beanns que configuran hibernate -->
+<import resource="hibernate-context.xml"/>
+
+	<!-- lo siguiente activa el uso de anotaciones en spring -->
+	<context:annotation-config />
+	<!-- podemos cargar beans en el contenedor marcando las clases de las cuales 
+		queremos crea bean con la anotacion @Component. Cuando pongamos @Component 
+		en una clase, se creara una bean en el contenedor de spring de esa clase, 
+		dicha bean tendra como id el nombre de la clase empenzando por letra minuscula. 
+		En el xml debemos indicar los paquetes que tengas clases marcadas como componentes 
+		de spring: -->
+
+	<context:component-scan base-package="beans"/>
+	<!--  el mismo efecto que con @Component se puede conseguir con 
+	@Service, @Repositoty, @Controller -->
+
+
+	<!-- aqui digo por cada etiqueta bean, que objeto va a tener el contenedor 
+		de spring -->
+
+
+	<!-- <bean id="apuestasDaoImpl" class="beans.ApuestasDaoImpl"> -->
+	<!-- <property name="urlConexion" value="localhost:6060/db_apuestas" /> -->
+	<!-- <property name="usuariosDaoImpl" ref="a"/> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="a" class="beans.UsuariosDaoImpl"> -->
+
+	<!-- </bean> -->
+
+
+
+</beans>
